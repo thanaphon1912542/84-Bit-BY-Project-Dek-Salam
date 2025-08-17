@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ตัวช่วยการบ้าน 8‑bit · อวกาศ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Kanit:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <style>
+      :root {
+        --ink: #e6f1ff;
+        --accent: #f7d54a;
+        --cyan: #77e8ff;
+        --card-bg: rgba(8, 14, 32, .78);
+        --card-stroke: #000;
+        --success: #66ff66;
+        --danger: #ff5555;
+      }
+      *{box-sizing:border-box}
+      html,body{height:100%}
+      body {
+        margin: 0;
+        color: var(--ink);
+        font-family: "Kanit", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+        background: #0b1020;
+        overflow-x: hidden;
+      }
+      .bg-wrap{position:fixed; inset:0; z-index:-2; overflow:hidden}
+      .bg-gif{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; image-rendering: pixelated; filter: saturate(115%) contrast(105%) brightness(95%)}
+      .bg-overlay{position:absolute; inset:0; background: linear-gradient(180deg, rgba(8,14,32,.88), rgba(8,14,32,.65)); z-index:1; backdrop-filter:blur(1.5px)}
+
+      .container{max-width:820px; margin:0 auto; padding:clamp(16px, 3.2vw, 32px); padding-bottom:40px; text-align:center}
+      
+      .brand {
+        font-family: "Press Start 2P", monospace;
+        line-height: 1.5;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        font-size: clamp(22px, 3.2vw, 34px);
+        justify-content: center;
+        text-align: center;
+        margin-bottom: 40px;
+      }
+      .brand img.logo {
+        width: 280px;
+        max-width: 80%;
+        height: auto;
+        image-rendering: pixelated;
+        mix-blend-mode: lighten;
+        animation: bob 3s ease-in-out infinite;
+      }
+      .brand .title {
+        text-shadow: 3px 3px 0 #000;
+      }
+
+      .card {
+        background: var(--card-bg);
+        border: 4px solid var(--card-stroke);
+        box-shadow: 8px 8px 0 #000, inset 0 0 0 2px rgba(119, 232, 255, .25);
+        padding: 20px;
+        position: relative;
+        backdrop-filter: blur(2px);
+        margin: 0 auto;
+        max-width: 680px;
+        text-align: left;
+        transition: all 0.3s ease;
+      }
+      .card::after{ content:""; position:absolute; inset:0; pointer-events:none; mix-blend-mode:soft-light; background:repeating-linear-gradient(transparent 0 3px, rgba(255,255,255,.04) 3px 6px); opacity:.6 }
+
+      .btn {
+        display: inline-block;
+        padding: 12px 24px;
+        border: 4px solid #000;
+        box-shadow: 4px 4px 0 #000;
+        background: var(--accent);
+        font-weight: 700;
+        cursor: pointer;
+        user-select: none;
+        transition: all 0.1s ease-out;
+        color: #000;
+        text-shadow: none;
+      }
+      .btn:active{ transform:translate(2px, 2px); box-shadow:2px 2px 0 #000 }
+      .btn:disabled { background: #555; color: #999; cursor: not-allowed; box-shadow: 2px 2px 0 #000; transform: translate(2px, 2px); }
+      .btn.alt{ background:#0f1a34; color:#fff; outline:2px solid var(--cyan) }
+      .btn.copy { background: var(--success); margin-top: 15px; }
+      
+      .input-grid {
+        display: grid;
+        gap: 16px;
+        grid-template-columns: 1fr 1fr;
+      }
+      
+      @media (max-width: 719px) {
+        .input-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      
+      textarea{
+        width:100%;
+        min-height: 200px;
+        resize:vertical;
+        border:2px solid #000;
+        background:rgba(0,0,0,.45);
+        color:#e6f1ff;
+        padding:14px;
+        font:inherit
+      }
+      textarea:focus { outline: 2px solid var(--cyan); }
+      
+      .upload-wrapper {
+        position: relative;
+        width: 100%;
+        min-height: 200px;
+        background: rgba(0, 0, 0, .45);
+        border: 2px dashed #000;
+        transition: background-color 0.2s, outline 0.2s;
+      }
+      
+      .upload-wrapper.dragover {
+        background-color: rgba(0, 0, 0, .6);
+        outline: 2px dashed var(--cyan);
+      }
+      
+      .upload-placeholder {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        color: #cfe8ff;
+        cursor: pointer;
+        padding: 16px;
+        text-align: center;
+        transition: opacity 0.3s ease;
+      }
+      .upload-placeholder svg {
+        width: 48px;
+        height: 48px;
+        margin-bottom: 12px;
+        opacity: 0.7;
+      }
+      
+      .image-preview {
+        position: absolute;
+        inset: 0;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+      }
+      
+      .upload-wrapper.has-file .image-preview {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .upload-wrapper.has-file .upload-placeholder {
+        opacity: 0;
+        pointer-events: none;
+      }
+      
+      .image-controls {
+        position: absolute;
+        bottom: 8px;
+        right: 8px;
+        display: flex;
+        gap: 8px;
+        z-index: 10;
+      }
+
+      .image-controls button {
+        background: var(--card-bg);
+        color: var(--ink);
+        border: 2px solid #000;
+        padding: 6px 10px;
+        font-size: 12px;
+        font-weight: bold;
+        cursor: pointer;
+        box-shadow: 2px 2px 0 #000;
+      }
+      .image-controls button:active {
+        transform: translate(1px, 1px);
+        box-shadow: 1px 1px 0 #000;
+      }
+
+      input[type=file]{ display:none }
+
+      .spacer{ height:16px }
+      .row{ display:flex; gap:12px; align-items:center; justify-content:center; flex-wrap:wrap }
+
+      #resultCard {
+        margin-top: 24px;
+        display: none;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+      }
+      #resultCard.visible {
+        display: block;
+        opacity: 1;
+        transform: translateY(0);
+      }
+      #resultContent { white-space: pre-wrap; word-wrap: break-word; line-height: 1.7; }
+      #resultContent h1, #resultContent h2, #resultContent h3 { color: var(--cyan); }
+      #resultContent code { background: rgba(0,0,0,0.3); padding: 2px 5px; border-radius: 3px; font-family: monospace; }
+      #resultContent pre { background: rgba(0,0,0,0.5); padding: 10px; border-radius: 4px; overflow-x: auto; }
+      #resultContent blockquote { border-left: 3px solid var(--cyan); padding-left: 15px; margin-left: 0; font-style: italic; color: #c0d8f0; }
+      .blinking-cursor { animation: blink 1s step-end infinite; }
+      @keyframes blink { 50% { opacity: 0; } }
+
+      .runner-wrap{position:fixed; bottom:0; left:0; width:100%; height:140px; overflow:hidden; pointer-events:none; z-index:5}
+      .runner{position:absolute; bottom:0; height:140px; image-rendering:pixelated; animation:runAcross 20s linear infinite; background:transparent !important; mix-blend-mode: lighten;}
+
+      @keyframes bob{0%{transform:translateY(0)}50%{transform:translateY(-8px)}100%{transform:translateY(0)}}
+      @keyframes runAcross{0%{left:-240px}100%{left:100%}}
+      
+      /* --- CSS ที่แก้ไขสำหรับเครดิต --- */
+      .credit {
+        font-family: "Press Start 2P", monospace;
+        color: var(--ink);
+        opacity: 0.8;
+        font-size: 14px;
+        text-shadow: 2px 2px 0 #000;
+        padding-bottom: 160px;
+        margin-top: 20px;
+        position: relative;
+        z-index: 10;
+        
+        /* เพิ่มเข้ามาใหม่ */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+      }
+      .credit-gif {
+        height: 40px;
+        width: auto;
+        image-rendering: pixelated;
+      }
+    </style>
+</head>
+<body>
+  <div class="bg-wrap" aria-hidden="true">
+    <img class="bg-gif" src="https://i.postimg.cc/QNJdpSnh/470ca6289e3500ca59375cf5ef12bca3.gif" alt="pixel space background" />
+    <div class="bg-overlay"></div>
+  </div>
+
+  <div class="container">
+    <h1 class="brand">
+      <img class="logo" src="https://i.postimg.cc/dth7Yp9n/tumblr-npuxsqa-Ka-C1tbahjdo1-1280.gif" alt="logo"/>
+      <span class="title">ตัวช่วยการบ้าน <span style="color:#77e8ff">8‑bit อวกาศ</span></span>
+    </h1>
+
+    <div class="card" style="animation:bob 3.2s ease-in-out infinite">
+      <p style="margin-top:0; text-align:center;">อัปโหลดรูปโจทย์หรือพิมพ์ข้อความ จากนั้นกด <b>เฉลย</b> ได้เลยเพื่อน</p>
+      
+      <div class="input-grid">
+        <div class="upload-wrapper" id="uploadWrapper">
+            <input id="fileInput" type="file" accept="image/*">
+            
+            <div class="upload-placeholder" id="uploadPlaceholder">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path fill-rule="evenodd" d="M11.47 2.47a.75.75 0 0 1 1.06 0l4.5 4.5a.75.75 0 0 1-1.06 1.06l-3.22-3.22V16.5a.75.75 0 0 1-1.5 0V4.81L8.03 8.03a.75.75 0 0 1-1.06-1.06l4.5-4.5ZM3 15.75a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd" />
+                </svg>
+                <span>คลิกเพื่อเลือกรูป<br>หรือลาก/วางไฟล์ที่นี่</span>
+            </div>
+            
+            <div class="image-preview" id="imagePreview"></div>
+            
+            <div class="image-controls" id="imageControls" style="display: none;">
+                <button type="button" id="changeImageBtn">เปลี่ยน</button>
+                <button type="button" id="removeImageBtn">ลบ</button>
+            </div>
+        </div>
+        
+        <textarea id="questionText" placeholder="หรือพิมพ์โจทย์ที่นี่ (ไทย/อังกฤษได้หมด)"></textarea>
+      </div>
+
+      <div class="spacer"></div>
+      <div class="row" style="justify-content:center">
+        <button class="btn" id="solveBtn" title="กดเพื่อเฉลยโจทย์" type="button">เฉลย</button>
+        <button class="btn alt" id="clearBtn" title="ล้างค่าทั้งหมด" type="button">ล้าง</button>
+      </div>
+    </div>
+
+    <div id="resultCard" class="card">
+      <h2 style="margin-top:0; font-family:'Press Start 2P'; color:var(--accent); text-shadow: 2px 2px 0 #000;">คำตอบจาก AI</h2>
+      <div id="resultContent"></div>
+      <div class="row" style="justify-content: flex-end;">
+        <button class="btn copy" id="copyBtn" title="คัดลอกคำตอบ" type="button">คัดลอก</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="credit">
+    <span>BY Project เด็กสลัม</span>
+    <img src="https://i.postimg.cc/dtzc7vWx/dancing-duck-karlo.gif" alt="dancing duck gif" class="credit-gif">
+  </div>
+  <div class="runner-wrap">
+    <img class="runner" src="https://i.postimg.cc/PfvqPZBQ/run-paul-1-orig.gif" alt="runner" />
+  </div>
+
+  <script>
+    // --- 🚨 คำเตือน: นี่คือเวอร์ชันสำหรับทดสอบเท่านั้น ---
+    // API Key ถูกใส่ไว้ตรงนี้โดยตรง ซึ่งไม่ปลอดภัยอย่างยิ่ง
+    // ห้ามนำโค้ดนี้ไปใช้งานจริงบนอินเทอร์เน็ตเด็ดขาด
+    const API_KEY = "AIzaSyCDxPTF2o7eQz7BCQC5d7FmrFUyOoevCFs"; 
+    const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${API_KEY}`;
+
+    // --- DOM Elements (เหมือนเดิม) ---
+    const uploadWrapper = document.getElementById('uploadWrapper');
+    const fileInput = document.getElementById('fileInput');
+    const uploadPlaceholder = document.getElementById('uploadPlaceholder');
+    const imagePreview = document.getElementById('imagePreview');
+    const imageControls = document.getElementById('imageControls');
+    const changeImageBtn = document.getElementById('changeImageBtn');
+    const removeImageBtn = document.getElementById('removeImageBtn');
+    const questionText = document.getElementById('questionText');
+    const clearBtn = document.getElementById('clearBtn');
+    const solveBtn = document.getElementById('solveBtn');
+    const resultCard = document.getElementById('resultCard');
+    const resultContent = document.getElementById('resultContent');
+    const copyBtn = document.getElementById('copyBtn');
+
+    let uploadedFile = null;
+
+    // --- ฟังก์ชันตัวช่วย (เหมือนเดิม) ---
+    function fileToBase64(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result.split(',')[1]);
+        reader.onerror = error => reject(error);
+      });
+    }
+
+    function typeWriterEffect(element, text, onComplete) {
+      let i = 0;
+      element.innerHTML = "";
+      const cursor = '<span class="blinking-cursor">|</span>';
+      element.innerHTML = cursor;
+      function type() {
+        if (i < text.length) {
+          element.innerHTML = text.substring(0, i + 1) + cursor;
+          i++;
+          setTimeout(type, 15);
+        } else {
+          element.innerHTML = text;
+          if (onComplete) onComplete();
+        }
+      }
+      type();
+    }
+
+    function renderMathInElement(element) {
+      let text = element.innerHTML;
+      text = text.replace(/\$\$([\s\S]*?)\$\$/g, (match, expression) => {
+        try { return katex.renderToString(expression, { displayMode: true, throwOnError: false }); } catch (e) { return match; }
+      });
+      text = text.replace(/\$([\s\S]*?)\$/g, (match, expression) => {
+        try { return katex.renderToString(expression, { displayMode: false, throwOnError: false }); } catch (e) { return match; }
+      });
+      element.innerHTML = text;
+    }
+
+    // --- จัดการการอัปโหลดไฟล์ (เหมือนเดิม) ---
+    function updateUploadUI(file) {
+      if (file && file.type.startsWith('image/')) {
+        uploadedFile = file;
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          imagePreview.style.backgroundImage = `url('${e.target.result}')`;
+        };
+        reader.readAsDataURL(file);
+        uploadWrapper.classList.add('has-file');
+        imageControls.style.display = 'flex';
+      } else {
+        if (file) alert("กรุณาเลือกไฟล์รูปภาพเท่านั้น");
+        uploadedFile = null;
+        imagePreview.style.backgroundImage = 'none';
+        uploadWrapper.classList.remove('has-file');
+        imageControls.style.display = 'none';
+        fileInput.value = '';
+      }
+    }
+
+    uploadPlaceholder.addEventListener('click', () => fileInput.click());
+    changeImageBtn.addEventListener('click', () => fileInput.click());
+    removeImageBtn.addEventListener('click', () => updateUploadUI(null));
+    
+    fileInput.addEventListener('change', () => {
+      if (fileInput.files.length > 0) {
+        updateUploadUI(fileInput.files[0]);
+      }
+    });
+
+    ['dragenter', 'dragover'].forEach(eventName => {
+      uploadWrapper.addEventListener(eventName, (e) => {
+        e.preventDefault(); e.stopPropagation();
+        uploadWrapper.classList.add('dragover');
+      });
+    });
+    ['dragleave', 'drop'].forEach(eventName => {
+      uploadWrapper.addEventListener(eventName, (e) => {
+        e.preventDefault(); e.stopPropagation();
+        uploadWrapper.classList.remove('dragover');
+      });
+    });
+    uploadWrapper.addEventListener('drop', (e) => {
+      const file = e.dataTransfer.files[0];
+      updateUploadUI(file);
+    });
+    
+    document.addEventListener('paste', (e) => {
+      const file = e.clipboardData.files[0];
+      if (file) updateUploadUI(file);
+    });
+
+    // --- จัดการปุ่ม (เหมือนเดิม) ---
+    clearBtn.addEventListener('click', () => {
+      updateUploadUI(null);
+      questionText.value = '';
+      resultCard.classList.remove('visible');
+    });
+
+    copyBtn.addEventListener('click', () => {
+      navigator.clipboard.writeText(resultContent.innerText).then(() => {
+        copyBtn.textContent = 'คัดลอกแล้ว!';
+        setTimeout(() => { copyBtn.textContent = 'คัดลอก'; }, 2000);
+      }).catch(err => {
+        alert('ไม่สามารถคัดลอกได้: ' + err);
+      });
+    });
+
+    // --- ฟังก์ชันหลัก: เฉลยโจทย์ (แก้ไขให้ยิงไป Google โดยตรง) ---
+    solveBtn.addEventListener('click', async () => {
+      const textPrompt = questionText.value.trim();
+      if (!uploadedFile && !textPrompt) {
+        alert('กรุณาอัปโหลดรูปหรือพิมพ์โจทย์ก่อน!');
+        return;
+      }
+
+      solveBtn.disabled = true;
+      solveBtn.textContent = 'กำลังประมวลผล...';
+      resultCard.classList.add('visible');
+      resultContent.innerHTML = 'กำลังเรียกยานแม่... <span class="blinking-cursor">|</span>';
+
+      const parts = [];
+      let promptText = "จากโจทย์ที่ให้มานี้ ช่วยแสดงวิธีทำและหาคำตอบให้หน่อย";
+      if (textPrompt) {
+          promptText += ": " + textPrompt;
+      }
+      parts.push({ text: promptText });
+
+
+      if (uploadedFile) {
+        try {
+          const base64Data = await fileToBase64(uploadedFile);
+          parts.push({
+            inline_data: { mime_type: uploadedFile.type, data: base64Data }
+          });
+        } catch (error) {
+          console.error("Error converting file to base64:", error);
+          resultContent.innerHTML = `<p style="color:var(--danger)">เกิดข้อผิดพลาดในการแปลงไฟล์รูปภาพ</p>`;
+          solveBtn.disabled = false;
+          solveBtn.textContent = 'เฉลย';
+          return;
+        }
+      }
+      
+      try {
+        const response = await fetch(API_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ contents: [{ parts }] })
+        });
+        if (!response.ok) {
+          const errorData = await response.json();
+          throw new Error(errorData.error.message || `HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        const aiResponse = data.candidates[0].content.parts[0].text;
+        
+        const htmlResponse = marked.parse(aiResponse);
+        typeWriterEffect(resultContent, htmlResponse, () => {
+          renderMathInElement(resultContent);
+        });
+      } catch (error) {
+        console.error("Error calling Gemini API:", error);
+        resultContent.innerHTML = `<p style="color:var(--danger)"><strong>เกิดข้อผิดพลาด:</strong> ${error.message}</p>`;
+      } finally {
+        solveBtn.disabled = false;
+        solveBtn.textContent = 'เฉลย';
+      }
+    });
+  </script>
+</body>
+</html>
