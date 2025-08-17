@@ -4,6 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>ตัวช่วยการบ้าน 8‑bit · อวกาศ</title>
+
+    <meta property="og:title" content="ตัวช่วยการบ้าน 8-bit อวกาศ" />
+    <meta property="og:description" content="เฉลยโจทย์การบ้านด้วย AI สุดล้ำในธีมอวกาศ 8-bit" />
+    <meta property="og:image" content="https://i.postimg.cc/dth7Yp9n/tumblr-npuxsqa-Ka-C1tbahjdo1-1280.gif" />
+    <meta property="og:url" content="https://dekhomeworks.com/" /> <meta property="og:type" content="website" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Kanit:wght@400;700&display=swap" rel="stylesheet">
@@ -225,7 +230,6 @@
       @keyframes bob{0%{transform:translateY(0)}50%{transform:translateY(-8px)}100%{transform:translateY(0)}}
       @keyframes runAcross{0%{left:-240px}100%{left:100%}}
       
-      /* --- CSS ที่แก้ไขสำหรับเครดิต --- */
       .credit {
         font-family: "Press Start 2P", monospace;
         color: var(--ink);
@@ -237,7 +241,6 @@
         position: relative;
         z-index: 10;
         
-        /* เพิ่มเข้ามาใหม่ */
         display: flex;
         justify-content: center;
         align-items: center;
@@ -307,6 +310,7 @@
     <span>BY Project เด็กสลัม</span>
     <img src="https://i.postimg.cc/dtzc7vWx/dancing-duck-karlo.gif" alt="dancing duck gif" class="credit-gif">
   </div>
+  
   <div class="runner-wrap">
     <img class="runner" src="https://i.postimg.cc/PfvqPZBQ/run-paul-1-orig.gif" alt="runner" />
   </div>
@@ -318,7 +322,6 @@
     const API_KEY = "AIzaSyCDxPTF2o7eQz7BCQC5d7FmrFUyOoevCFs"; 
     const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${API_KEY}`;
 
-    // --- DOM Elements (เหมือนเดิม) ---
     const uploadWrapper = document.getElementById('uploadWrapper');
     const fileInput = document.getElementById('fileInput');
     const uploadPlaceholder = document.getElementById('uploadPlaceholder');
@@ -335,7 +338,6 @@
 
     let uploadedFile = null;
 
-    // --- ฟังก์ชันตัวช่วย (เหมือนเดิม) ---
     function fileToBase64(file) {
       return new Promise((resolve, reject) => {
         const reader = new FileReader();
@@ -374,7 +376,6 @@
       element.innerHTML = text;
     }
 
-    // --- จัดการการอัปโหลดไฟล์ (เหมือนเดิม) ---
     function updateUploadUI(file) {
       if (file && file.type.startsWith('image/')) {
         uploadedFile = file;
@@ -427,7 +428,6 @@
       if (file) updateUploadUI(file);
     });
 
-    // --- จัดการปุ่ม (เหมือนเดิม) ---
     clearBtn.addEventListener('click', () => {
       updateUploadUI(null);
       questionText.value = '';
@@ -443,7 +443,6 @@
       });
     });
 
-    // --- ฟังก์ชันหลัก: เฉลยโจทย์ (แก้ไขให้ยิงไป Google โดยตรง) ---
     solveBtn.addEventListener('click', async () => {
       const textPrompt = questionText.value.trim();
       if (!uploadedFile && !textPrompt) {
