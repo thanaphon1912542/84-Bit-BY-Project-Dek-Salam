@@ -1,5 +1,27 @@
-<nav style="display:flex;gap:14px;justify-content:center;margin:8px 0 0">
-  <a href="/about.html" style="color:#77e8ff">เกี่ยวกับ</a>
-  <a href="/howto.html" style="color:#77e8ff">วิธีใช้งาน</a>
-  <a href="/contact.html" style="color:#77e8ff">ติดต่อ</a>
-</nav>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://dekhomeworks.com/</loc>
+    <lastmod>2025-08-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://dekhomeworks.com/about.html</loc>
+    <lastmod>2025-08-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dekhomeworks.com/howto.html</loc>
+    <lastmod>2025-08-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://dekhomeworks.com/contact.html</loc>
+    <lastmod>2025-08-18</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+</urlset>
