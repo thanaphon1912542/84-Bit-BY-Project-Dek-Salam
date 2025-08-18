@@ -1,104 +1,100 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>AI ช่วยการบ้าน | เฉลยโจทย์คณิต วิทย์ อังกฤษ ฟรี แค่ถ่ายรูป</title>
-    <meta name="description" content="เครื่องมือช่วยทำการบ้านด้วย AI อัจฉริยะ เพียงถ่ายรูปหรือพิมพ์โจทย์ รับเฉลยพร้อมวิธีทำอย่างละเอียดทันที รองรับทุกวิชา ตั้งแต่ประถมถึงมัธยม ใช้งานฟรี!" />
-    <meta name="keywords" content="ช่วยการบ้าน, เฉลยการบ้าน, เฉลยโจทย์, ทำการบ้าน, แอปช่วยทำการบ้าน, AI การบ้าน, แก้โจทย์คณิต, เว็บช่วยทำการบ้าน, ถ่ายรูปแก้โจทย์, homework solver, AI tutor" />
-    <link rel="canonical" href="https://dekhomeworks.com/" />
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <meta property="og:title" content="AI ช่วยการบ้าน | เฉลยโจทย์ฟรี แค่ถ่ายรูป" />
-    <meta property="og:description" content="ติดการบ้าน? ให้ AI ช่วยสิ! แค่ถ่ายรูปหรือพิมพ์โจทย์ ก็ได้คำตอบพร้อมวิธีทำทันที!" />
-    <meta property="og:image" content="https://i.postimg.cc/dth7Yp9n/tumblr-npuxsqa-Ka-C1tbahjdo1-1280.gif" />
-    <meta property="og:url" content="https://dekhomeworks.com/" />
-    <meta property="og:type" content="website" />
+  <title>AI ช่วยการบ้าน | เฉลยโจทย์คณิต วิทย์ อังกฤษ ฟรี แค่ถ่ายรูป</title>
+  <meta name="description" content="เครื่องมือช่วยทำการบ้านด้วย AI อัจฉริยะ เพียงถ่ายรูปหรือพิมพ์โจทย์ รับเฉลยพร้อมวิธีทำอย่างละเอียดทันที รองรับทุกวิชา ตั้งแต่ประถมถึงมัธยม ใช้งานฟรี!" />
+  <meta name="keywords" content="ช่วยการบ้าน, เฉลยการบ้าน, เฉลยโจทย์, ทำการบ้าน, แอปช่วยทำการบ้าน, AI การบ้าน, แก้โจทย์คณิต, เว็บช่วยทำการบ้าน, ถ่ายรูปแก้โจทย์, homework solver, AI tutor" />
+  <link rel="canonical" href="https://dekhomeworks.com/" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <meta property="og:title" content="AI ช่วยการบ้าน | เฉลยโจทย์ฟรี แค่ถ่ายรูป" />
+  <meta property="og:description" content="ติดการบ้าน? ให้ AI ช่วยสิ! แค่ถ่ายรูปหรือพิมพ์โจทย์ ก็ได้คำตอบพร้อมวิธีทำทันที!" />
+  <meta property="og:image" content="https://i.postimg.cc/dth7Yp9n/tumblr-npuxsqa-Ka-C1tbahjdo1-1280.gif" />
+  <meta property="og:url" content="https://dekhomeworks.com/" />
+  <meta property="og:type" content="website" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Kanit:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Kanit:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
-    <style>
-      :root {
-        --ink: #e6f1ff;
-        --accent: #f7d54a;
-        --cyan: #77e8ff;
-        --card-bg: rgba(8, 14, 32, .78);
-        --card-stroke: #000;
-        --success: #66ff66;
-        --danger: #ff5555;
-      }
-      *{box-sizing:border-box}
-      html,body{height:100%}
-      body{margin:0;color:var(--ink);font-family:"Kanit",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:#0b1020;overflow-x:hidden}
-      .bg-wrap{position:fixed;inset:0;z-index:-2;overflow:hidden}
-      .bg-gif{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;image-rendering:pixelated;filter:saturate(115%) contrast(105%) brightness(95%)}
-      .bg-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,14,32,.88),rgba(8,14,32,.65));z-index:1;backdrop-filter:blur(1.5px)}
-      .container{max-width:820px;margin:0 auto;padding:clamp(16px,3.2vw,32px);padding-bottom:40px;text-align:center}
-      .brand{font-family:"Press Start 2P",monospace;line-height:1.5;display:flex;flex-direction:column;align-items:center;gap:20px;font-size:clamp(22px,3.2vw,34px);justify-content:center;text-align:center;margin-bottom:40px}
-      .brand img.logo{width:280px;max-width:80%;height:auto;image-rendering:pixelated;mix-blend-mode:lighten;animation:bob 3s ease-in-out infinite}
-      .brand .title{text-shadow:3px 3px 0 #000}
-      .card{background:var(--card-bg);border:4px solid var(--card-stroke);box-shadow:8px 8px 0 #000,inset 0 0 0 2px rgba(119,232,255,.25);padding:20px;position:relative;backdrop-filter:blur(2px);margin:0 auto;max-width:680px;text-align:left;transition:all .3s ease}
-      .card::after{content:"";position:absolute;inset:0;pointer-events:none;mix-blend-mode:soft-light;background:repeating-linear-gradient(transparent 0 3px,rgba(255,255,255,.04) 3px 6px);opacity:.6}
-      .btn{display:inline-block;padding:12px 24px;border:4px solid #000;box-shadow:4px 4px 0 #000;background:var(--accent);font-weight:700;cursor:pointer;user-select:none;transition:all .1s ease-out;color:#000;text-shadow:none}
-      .btn:active{transform:translate(2px,2px);box-shadow:2px 2px 0 #000}
-      .btn:disabled{background:#555;color:#999;cursor:not-allowed;box-shadow:2px 2px 0 #000;transform:translate(2px,2px)}
-      .btn.alt{background:#0f1a34;color:#fff;outline:2px solid var(--cyan)}
-      .btn.copy{background:var(--success);margin-top:15px}
-      .input-grid{display:grid;gap:16px;grid-template-columns:1fr 1fr}
-      @media (max-width:719px){.input-grid{grid-template-columns:1fr}}
-      textarea{width:100%;min-height:200px;resize:vertical;border:2px solid #000;background:rgba(0,0,0,.45);color:#e6f1ff;padding:14px;font:inherit}
-      textarea:focus{outline:2px solid var(--cyan)}
-      .upload-wrapper{position:relative;width:100%;min-height:200px;background:rgba(0,0,0,.45);border:2px dashed #000;transition:background-color .2s,outline .2s}
-      .upload-wrapper.dragover{background-color:rgba(0,0,0,.6);outline:2px dashed var(--cyan)}
-      .upload-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;height:100%;color:#cfe8ff;cursor:pointer;padding:16px;text-align:center;transition:opacity .3s ease}
-      .upload-placeholder svg{width:48px;height:48px;margin-bottom:12px;opacity:.7}
-      .image-preview{position:absolute;inset:0;background-size:contain;background-position:center;background-repeat:no-repeat;opacity:0;transition:opacity .3s ease;pointer-events:none}
-      .upload-wrapper.has-file .image-preview{opacity:1;pointer-events:auto}
-      .upload-wrapper.has-file .upload-placeholder{opacity:0;pointer-events:none}
-      .image-controls{position:absolute;bottom:8px;right:8px;display:flex;gap:8px;z-index:10}
-      .image-controls button{background:var(--card-bg);color:var(--ink);border:2px solid #000;padding:6px 10px;font-size:12px;font-weight:700;cursor:pointer;box-shadow:2px 2px 0 #000}
-      .image-controls button:active{transform:translate(1px,1px);box-shadow:1px 1px 0 #000}
-      input[type=file]{display:none}
-      .spacer{height:16px}
-      .row{display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap}
-      #resultCard{margin-top:24px;display:none;opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease}
-      #resultCard.visible{display:block;opacity:1;transform:translateY(0)}
-      #resultContent{white-space:pre-wrap;word-wrap:break-word;line-height:1.7}
-      #resultContent h1,#resultContent h2,#resultContent h3{color:var(--cyan)}
-      #resultContent code{background:rgba(0,0,0,.3);padding:2px 5px;border-radius:3px;font-family:monospace}
-      #resultContent pre{background:rgba(0,0,0,.5);padding:10px;border-radius:4px;overflow-x:auto}
-      #resultContent blockquote{border-left:3px solid var(--cyan);padding-left:15px;margin-left:0;font-style:italic;color:#c0d8f0}
-      .blinking-cursor{animation:blink 1s step-end infinite}
-      @keyframes blink{50%{opacity:0}}
-      .runner-wrap{position:fixed;bottom:0;left:0;width:100%;height:140px;overflow:hidden;pointer-events:none;z-index:5}
-      .runner{position:absolute;bottom:0;height:140px;image-rendering:pixelated;animation:runAcross 20s linear infinite;background:0 0!important;mix-blend-mode:lighten}
-      @keyframes bob{0%{transform:translateY(0)}50%{transform:translateY(-8px)}100%{transform:translateY(0)}}
-      @keyframes runAcross{0%{left:-240px}100%{left:100%}}
-      .credit{font-family:"Press Start 2P",monospace;color:var(--ink);opacity:.8;font-size:14px;text-shadow:2px 2px 0 #000;padding-bottom:160px;margin-top:20px;position:relative;z-index:10;display:flex;justify-content:center;align-items:center;gap:15px}
-      .credit-gif{height:40px;width:auto;image-rendering:pixelated}
+  <style>
+    :root{--ink:#e6f1ff;--accent:#f7d54a;--cyan:#77e8ff;--card-bg:rgba(8,14,32,.78);--card-stroke:#000;--success:#66ff66;--danger:#ff5555}
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;color:var(--ink);font-family:"Kanit",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:#0b1020;overflow-x:hidden}
+    .bg-wrap{position:fixed;inset:0;z-index:-2;overflow:hidden}
+    .bg-gif{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;image-rendering:pixelated;filter:saturate(115%) contrast(105%) brightness(95%)}
+    .bg-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,14,32,.88),rgba(8,14,32,.65));z-index:1;backdrop-filter:blur(1.5px)}
+    .container{max-width:820px;margin:0 auto;padding:clamp(16px,3.2vw,32px);padding-bottom:40px;text-align:center}
+    .brand{font-family:"Press Start 2P",monospace;line-height:1.5;display:flex;flex-direction:column;align-items:center;gap:20px;font-size:clamp(22px,3.2vw,34px);justify-content:center;text-align:center;margin-bottom:18px}
+    .brand img.logo{width:280px;max-width:80%;height:auto;image-rendering:pixelated;mix-blend-mode:lighten;animation:bob 3s ease-in-out infinite}
+    .brand .title{text-shadow:3px 3px 0 #000}
 
-      /* --- ⬇️ CSS สำหรับส่วนเนื้อหา SEO ที่เพิ่มเข้ามา ⬇️ --- */
-      .content-section{margin-top:40px;text-align:left;line-height:1.8;padding:25px}
-      .content-section h2, .content-section h3 { font-family: 'Press Start 2P', monospace; }
-      .content-section h2 { color: var(--accent); font-size: 1.2em; }
-      .content-section h3 { color: var(--cyan); font-size: 1em; margin-top: 25px; }
-      .content-section ul{list-style:none;padding-left:10px;margin-top:15px}
-      .content-section ul li{margin-bottom:10px;display:flex;align-items:flex-start}
-      .content-section ul li span { margin-right: 10px; }
-      
-      details{border:2px solid #000;background:var(--user-bubble);margin-bottom:10px;border-radius:4px;box-shadow:4px 4px 0 #000}
-      summary{padding:15px;cursor:pointer;font-weight:700;outline:none;display:flex;align-items:center;justify-content:space-between;color:var(--cyan)}
-      summary::-webkit-details-marker{display:none}
-      summary::after{content:'▶';font-family:"Press Start 2P";font-size:1em;transition:transform .2s}
-      details[open] summary::after{transform:rotate(90deg)}
-      .faq-answer{padding:0 15px 15px;border-top:2px solid #5a6b8c;line-height:1.7}
-      /* --- ⬆️ จบส่วน CSS สำหรับ SEO ⬆️ --- */
-    </style>
+    /* ===== เมนูหลัก ===== */
+    .site-nav{display:flex;gap:14px;justify-content:center;margin:8px 0 24px;font-weight:700}
+    .site-nav a{color:#77e8ff;text-decoration:none}
+    .site-nav a:hover{text-decoration:underline}
+
+    .card{background:var(--card-bg);border:4px solid var(--card-stroke);box-shadow:8px 8px 0 #000,inset 0 0 0 2px rgba(119,232,255,.25);padding:20px;position:relative;backdrop-filter:blur(2px);margin:0 auto;max-width:680px;text-align:left;transition:all .3s ease}
+    .card::after{content:"";position:absolute;inset:0;pointer-events:none;mix-blend-mode:soft-light;background:repeating-linear-gradient(transparent 0 3px,rgba(255,255,255,.04) 3px 6px);opacity:.6}
+    .btn{display:inline-block;padding:12px 24px;border:4px solid #000;box-shadow:4px 4px 0 #000;background:var(--accent);font-weight:700;cursor:pointer;user-select:none;transition:all .1s ease-out;color:#000;text-shadow:none}
+    .btn:active{transform:translate(2px,2px);box-shadow:2px 2px 0 #000}
+    .btn:disabled{background:#555;color:#999;cursor:not-allowed;box-shadow:2px 2px 0 #000;transform:translate(2px,2px)}
+    .btn.alt{background:#0f1a34;color:#fff;outline:2px solid var(--cyan)}
+    .btn.copy{background:var(--success);margin-top:15px}
+    .input-grid{display:grid;gap:16px;grid-template-columns:1fr 1fr}
+    @media (max-width:719px){.input-grid{grid-template-columns:1fr}}
+    textarea{width:100%;min-height:200px;resize:vertical;border:2px solid #000;background:rgba(0,0,0,.45);color:#e6f1ff;padding:14px;font:inherit}
+    textarea:focus{outline:2px solid var(--cyan)}
+    .upload-wrapper{position:relative;width:100%;min-height:200px;background:rgba(0,0,0,.45);border:2px dashed #000;transition:background-color .2s,outline .2s}
+    .upload-wrapper.dragover{background-color:rgba(0,0,0,.6);outline:2px dashed var(--cyan)}
+    .upload-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;height:100%;color:#cfe8ff;cursor:pointer;padding:16px;text-align:center;transition:opacity .3s ease}
+    .upload-placeholder svg{width:48px;height:48px;margin-bottom:12px;opacity:.7}
+    .image-preview{position:absolute;inset:0;background-size:contain;background-position:center;background-repeat:no-repeat;opacity:0;transition:opacity .3s ease;pointer-events:none}
+    .upload-wrapper.has-file .image-preview{opacity:1;pointer-events:auto}
+    .upload-wrapper.has-file .upload-placeholder{opacity:0;pointer-events:none}
+    .image-controls{position:absolute;bottom:8px;right:8px;display:flex;gap:8px;z-index:10}
+    .image-controls button{background:var(--card-bg);color:var(--ink);border:2px solid #000;padding:6px 10px;font-size:12px;font-weight:700;cursor:pointer;box-shadow:2px 2px 0 #000}
+    .image-controls button:active{transform:translate(1px,1px);box-shadow:1px 1px 0 #000}
+    input[type=file]{display:none}
+    .spacer{height:16px}
+    .row{display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap}
+    #resultCard{margin-top:24px;display:none;opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease}
+    #resultCard.visible{display:block;opacity:1;transform:translateY(0)}
+    #resultContent{white-space:pre-wrap;word-wrap:break-word;line-height:1.7}
+    #resultContent h1,#resultContent h2,#resultContent h3{color:var(--cyan)}
+    #resultContent code{background:rgba(0,0,0,.3);padding:2px 5px;border-radius:3px;font-family:monospace}
+    #resultContent pre{background:rgba(0,0,0,.5);padding:10px;border-radius:4px;overflow-x:auto}
+    #resultContent blockquote{border-left:3px solid var(--cyan);padding-left:15px;margin-left:0;font-style:italic;color:#c0d8f0}
+    .blinking-cursor{animation:blink 1s step-end infinite}
+    @keyframes blink{50%{opacity:0}}
+    .runner-wrap{position:fixed;bottom:0;left:0;width:100%;height:140px;overflow:hidden;pointer-events:none;z-index:5}
+    .runner{position:absolute;bottom:0;height:140px;image-rendering:pixelated;animation:runAcross 20s linear infinite;background:0 0!important;mix-blend-mode:lighten}
+    @keyframes bob{0%{transform:translateY(0)}50%{transform:translateY(-8px)}100%{transform:translateY(0)}}
+    @keyframes runAcross{0%{left:-240px}100%{left:100%}}
+    .credit{font-family:"Press Start 2P",monospace;color:var(--ink);opacity:.8;font-size:14px;text-shadow:2px 2px 0 #000;padding-bottom:160px;margin-top:20px;position:relative;z-index:10;display:flex;justify-content:center;align-items:center;gap:15px}
+    .credit-gif{height:40px;width:auto;image-rendering:pixelated}
+
+    /* --- เนื้อหา SEO --- */
+    .content-section{margin-top:40px;text-align:left;line-height:1.8;padding:25px}
+    .content-section h2,.content-section h3{font-family:'Press Start 2P',monospace}
+    .content-section h2{color:var(--accent);font-size:1.2em}
+    .content-section h3{color:var(--cyan);font-size:1em;margin-top:25px}
+    .content-section ul{list-style:none;padding-left:10px;margin-top:15px}
+    .content-section ul li{margin-bottom:10px;display:flex;align-items:flex-start}
+    .content-section ul li span{margin-right:10px}
+    details{border:2px solid #000;background:var(--user-bubble);margin-bottom:10px;border-radius:4px;box-shadow:4px 4px 0 #000}
+    summary{padding:15px;cursor:pointer;font-weight:700;outline:none;display:flex;align-items:center;justify-content:space-between;color:var(--cyan)}
+    summary::-webkit-details-marker{display:none}
+    summary::after{content:'▶';font-family:"Press Start 2P";font-size:1em;transition:transform .2s}
+    details[open] summary::after{transform:rotate(90deg)}
+    .faq-answer{padding:0 15px 15px;border-top:2px solid #5a6b8c;line-height:1.7}
+  </style>
 </head>
 <body>
   <div class="bg-wrap" aria-hidden="true">
@@ -109,117 +105,272 @@
   <div class="container">
     <header class="brand">
       <img class="logo" src="https://i.postimg.cc/dth7Yp9n/tumblr-npuxsqa-Ka-C1tbahjdo1-1280.gif" alt="โลโก้ AI ช่วยการบ้าน"/>
-      <h1 class="title">AI ช่วยการบ้าน <span style="color:#77e8ff">8‑bit</span></h1>
+      <h1 class="title">AI ช่วยการบ้าน <span style="color:#77e8ff">8-bit</span></h1>
     </header>
 
+    <!-- เมนูหลัก -->
+    <nav class="site-nav">
+      <a href="/about.html">เกี่ยวกับ</a>
+      <a href="/howto.html">วิธีใช้งาน</a>
+      <a href="/contact.html">ติดต่อ</a>
+      <a href="#app">ใช้งานเลย</a>
+    </nav>
+
     <main>
-        <section class="card" style="animation:bob 3.2s ease-in-out infinite">
-          <p style="margin-top:0; text-align:center;">อัปโหลดรูปโจทย์หรือพิมพ์ข้อความ จากนั้นกด <b>เฉลย</b> ได้เลยเพื่อน</p>
-          <div class="input-grid">
-            <div class="upload-wrapper" id="uploadWrapper">
-                <input id="fileInput" type="file" accept="image/*">
-                <div class="upload-placeholder" id="uploadPlaceholder">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M11.47 2.47a.75.75 0 0 1 1.06 0l4.5 4.5a.75.75 0 0 1-1.06 1.06l-3.22-3.22V16.5a.75.75 0 0 1-1.5 0V4.81L8.03 8.03a.75.75 0 0 1-1.06-1.06l4.5-4.5ZM3 15.75a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd" /></svg>
-                    <span>คลิกเพื่อเลือกรูป<br>หรือลาก/วางไฟล์ที่นี่</span>
-                </div>
-                <div class="image-preview" id="imagePreview"></div>
-                <div class="image-controls" id="imageControls" style="display: none;">
-                    <button type="button" id="changeImageBtn">เปลี่ยน</button>
-                    <button type="button" id="removeImageBtn">ลบ</button>
-                </div>
+      <!-- การ์ดเครื่องมือ (มี id="app") -->
+      <section class="card" id="app" style="animation:bob 3.2s ease-in-out infinite">
+        <p style="margin-top:0; text-align:center;">
+          อัปโหลดรูปโจทย์หรือพิมพ์ข้อความ จากนั้นกด <b>เฉลย</b> ได้เลยเพื่อน
+        </p>
+
+        <div class="input-grid">
+          <div class="upload-wrapper" id="uploadWrapper">
+            <input id="fileInput" type="file" accept="image/*">
+            <div class="upload-placeholder" id="uploadPlaceholder">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M11.47 2.47a.75.75 0 0 1 1.06 0l4.5 4.5a.75.75 0 0 1-1.06 1.06l-3.22-3.22V16.5a.75.75 0 0 1-1.5 0V4.81L8.03 8.03a.75.75 0 0 1-1.06-1.06l4.5-4.5ZM3 15.75a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd"/></svg>
+              <span>คลิกเพื่อเลือกรูป<br>หรือลาก/วางไฟล์ที่นี่</span>
             </div>
-            <textarea id="questionText" placeholder="หรือพิมพ์โจทย์ที่นี่ (ไทย/อังกฤษได้หมด)"></textarea>
+            <div class="image-preview" id="imagePreview"></div>
+            <div class="image-controls" id="imageControls" style="display:none;">
+              <button type="button" id="changeImageBtn">เปลี่ยน</button>
+              <button type="button" id="removeImageBtn">ลบ</button>
+            </div>
           </div>
-          <div class="spacer"></div>
-          <div class="row" style="justify-content:center">
-            <button class="btn" id="solveBtn" title="กดเพื่อเฉลยโจทย์" type="button">เฉลย</button>
-            <button class="btn alt" id="clearBtn" title="ล้างค่าทั้งหมด" type="button">ล้าง</button>
-          </div>
-        </section>
-    
-        <section id="resultCard" class="card">
-          <h2 style="margin-top:0; font-family:'Press Start 2P'; color:var(--accent); text-shadow: 2px 2px 0 #000;">คำตอบจาก AI</h2>
-          <div id="resultContent"></div>
-          <div class="row" style="justify-content: flex-end;">
-            <button class="btn copy" id="copyBtn" title="คัดลอกคำตอบ" type="button">คัดลอก</button>
-          </div>
-        </section>
 
-        <section class="card content-section">
-            <h2>เกี่ยวกับ DekHomeworks</h2>
-            <p>DekHomeworks คือผู้ช่วยทำการบ้านด้วย AI ที่จะเปลี่ยนโจทย์ยากให้เป็นเรื่องง่าย แค่คุณอัปโหลดรูปโจทย์หรือพิมพ์คำถามเข้ามา ระบบ AI อัจฉริยะของเราจะวิเคราะห์และสร้างเฉลยละเอียดแบบขั้นต่อขั้นให้ทันที เหมาะสำหรับนักเรียนและนักศึกษาทุกระดับชั้นที่ต้องการความเข้าใจ ไม่ใช่แค่คำตอบ</p>
-            <ul>
-                <li><span>✨</span> รองรับโจทย์ทั้งข้อความและภาพ (แนะนำ PNG/JPG < 5MB)</li>
-                <li><span>🧠</span> แสดงวิธีทำแบบเป็นขั้นตอนและเรนเดอร์สมการคณิตด้วย KaTeX</li>
-                <li><span>📱</span> ใช้งานได้เต็มรูปแบบบนมือถือและคอมพิวเตอร์</li>
-            </ul>
+          <textarea id="questionText" placeholder="หรือพิมพ์โจทย์ที่นี่ (ไทย/อังกฤษได้หมด)"></textarea>
+        </div>
 
-            <h3>ฟีเจอร์เด่นของเรา</h3>
-            <p>เราออกแบบเครื่องมือนี้มาเพื่อเป็นมากกว่าเว็บเฉลยการบ้าน แต่เป็นเหมือนติวเตอร์ส่วนตัวของคุณ</p>
-            <ul>
-                <li><span>🚀</span> <strong>AI อัจฉริยะ:</strong> แก้ได้ทุกโจทย์ ตั้งแต่คณิตศาสตร์พื้นฐาน ฟิสิกส์ ไปจนถึงโจทย์โปรแกรมมิ่ง</li>
-                <li><span>🎯</span> <strong>เฉลยละเอียด:</strong> ไม่ใช่แค่บอกคำตอบ แต่แสดงวิธีคิดและที่มาของสูตร ช่วยให้คุณเข้าใจได้อย่างแท้จริง</li>
-                <li><span>📸</span> <strong>ง่ายแค่ถ่ายรูป:</strong> เพียงถ่ายรูปโจทย์ที่สงสัย ไม่ต้องเสียเวลาพิมพ์ให้ยุ่งยาก</li>
-            </ul>
+        <div class="spacer"></div>
+        <div class="row" style="justify-content:center">
+          <button class="btn" id="solveBtn"  type="button" title="กดเพื่อเฉลยโจทย์">เฉลย</button>
+          <button class="btn alt" id="clearBtn" type="button" title="ล้างค่าทั้งหมด">ล้าง</button>
+        </div>
+      </section>
 
-            <h3>คำถามที่พบบ่อย (FAQ)</h3>
-            <details>
-                <summary>ใช้งานฟรีจริงไหม?</summary>
-                <div class="faq-answer">
-                    <p>ใช่ 100%! เว็บไซต์ DekHomeworks เปิดให้ใช้งานได้ฟรีโดยไม่มีค่าใช้จ่ายแอบแฝง เราต้องการสร้างเครื่องมือเพื่อช่วยการศึกษาให้เข้าถึงง่ายที่สุด</p>
-                </div>
-            </details>
-            <details>
-                <summary>รองรับวิชาอะไรบ้าง?</summary>
-                <div class="faq-answer">
-                    <p>AI ของเราถูกฝึกฝนมาให้เข้าใจโจทย์ได้หลากหลายวิชา โดยเฉพาะอย่างยิ่งในกลุ่มวิชาคณิตศาสตร์, วิทยาศาสตร์ (ฟิสิกส์, เคมี, ชีววิทยา), ภาษาอังกฤษ และพื้นฐานการเขียนโปรแกรม คุณสามารถลองกับวิชาอื่นๆ ได้เช่นกัน!</p>
-                </div>
-            </details>
-            <details>
-                <summary>ข้อมูลของฉันปลอดภัยหรือไม่?</summary>
-                <div class="faq-answer">
-                    <p>ปลอดภัยแน่นอน เราเคารพความเป็นส่วนตัวของคุณ รูปภาพและข้อความโจทย์ที่คุณส่งเข้ามาจะถูกใช้เพื่อการประมวลผลหาคำตอบเท่านั้น และจะไม่ถูกเก็บไว้บนเซิร์ฟเวอร์ของเรา</p>
-                </div>
-            </details>
-        </section>
-        </main>
+      <section id="resultCard" class="card">
+        <h2 style="margin-top:0;font-family:'Press Start 2P';color:var(--accent);text-shadow:2px 2px 0 #000;">คำตอบจาก AI</h2>
+        <div id="resultContent"></div>
+        <div class="row" style="justify-content:flex-end;">
+          <button class="btn copy" id="copyBtn" type="button" title="คัดลอกคำตอบ">คัดลอก</button>
+        </div>
+      </section>
+
+      <section class="card content-section">
+        <h2>เกี่ยวกับ DekHomeworks</h2>
+        <p>DekHomeworks คือผู้ช่วยทำการบ้านด้วย AI ที่จะเปลี่ยนโจทย์ยากให้เป็นเรื่องง่าย แค่คุณอัปโหลดรูปโจทย์หรือพิมพ์คำถามเข้ามา ระบบ AI อัจฉริยะของเราจะวิเคราะห์และสร้างเฉลยละเอียดแบบขั้นต่อขั้นให้ทันที เหมาะสำหรับนักเรียนและนักศึกษาทุกระดับชั้นที่ต้องการความเข้าใจ ไม่ใช่แค่คำตอบ</p>
+        <ul>
+          <li><span>✨</span> รองรับโจทย์ทั้งข้อความและภาพ (แนะนำ PNG/JPG &lt; 5MB)</li>
+          <li><span>🧠</span> เรนเดอร์สมการคณิตด้วย KaTeX</li>
+          <li><span>📱</span> ใช้งานได้เต็มรูปแบบบนมือถือและคอมพิวเตอร์</li>
+        </ul>
+
+        <h3>ฟีเจอร์เด่นของเรา</h3>
+        <ul>
+          <li><span>🚀</span> <strong>AI อัจฉริยะ:</strong> แก้ได้หลายวิชา ตั้งแต่คณิต ฟิสิกส์ ถึงโปรแกรมมิ่ง</li>
+          <li><span>🎯</span> <strong>เฉลยละเอียด:</strong> อธิบายวิธีคิดทีละขั้น ช่วยให้เข้าใจจริง</li>
+          <li><span>📸</span> <strong>ง่ายแค่ถ่ายรูป:</strong> ไม่ต้องพิมพ์โจทย์ให้เมื่อยมือ</li>
+        </ul>
+
+        <h3>คำถามที่พบบ่อย (FAQ)</h3>
+        <details>
+          <summary>ใช้งานฟรีจริงไหม?</summary>
+          <div class="faq-answer"><p>ใช่ 100% เว็บไซต์ DekHomeworks เปิดให้ใช้ฟรี ไม่มีค่าใช้จ่ายแอบแฝง</p></div>
+        </details>
+        <details>
+          <summary>รองรับวิชาอะไรบ้าง?</summary>
+          <div class="faq-answer"><p>เน้นคณิต/วิทย์/อังกฤษ/พื้นฐานโปรแกรมมิ่ง และวิชาอื่น ๆ ทดลองได้</p></div>
+        </details>
+        <details>
+          <summary>ข้อมูลของฉันปลอดภัยไหม?</summary>
+          <div class="faq-answer"><p>เราเคารพความเป็นส่วนตัว โจทย์ที่ส่งมาจะใช้ประมวลผลเท่านั้น</p></div>
+        </details>
+      </section>
+    </main>
   </div>
 
   <footer class="credit">
     <span>BY Project เด็กสลัม</span>
     <img src="https://i.postimg.cc/dtzc7vWx/dancing-duck-karlo.gif" alt="dancing duck gif" class="credit-gif">
   </footer>
-  
+
   <div class="runner-wrap">
     <img class="runner" src="https://i.postimg.cc/PfvqPZBQ/run-paul-1-orig.gif" alt="pixel runner animation" />
   </div>
 
   <script>
-    // --- 🚨 คำเตือน: นี่คือเวอร์ชันสำหรับทดสอบเท่านั้น ---
-    const API_KEY = "AIzaSyCDxPTF2o7eQz7BCQC5d7FmrFUyOoevCFs";  
+  document.addEventListener('DOMContentLoaded', () => {
+    const $ = id => { const el = document.getElementById(id); if(!el) console.error(`#${id} not found`); return el; };
+
+    const API_KEY = "AIzaSyCDxPTF2o7eQz7BCQC5d7FmrFUyOoevCFs"; // สำหรับทดสอบเท่านั้น
     const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${API_KEY}`;
 
-    const uploadWrapper = document.getElementById('uploadWrapper');
-    const fileInput = document.getElementById('fileInput');
-    const uploadPlaceholder = document.getElementById('uploadPlaceholder');
-    const imagePreview = document.getElementById('imagePreview');
-    const imageControls = document.getElementById('imageControls');
-    const changeImageBtn = document.getElementById('changeImageBtn');
-    const removeImageBtn = document.getElementById('removeImageBtn');
-    const questionText = document.getElementById('questionText');
-    const clearBtn = document.getElementById('clearBtn');
-    const solveBtn = document.getElementById('solveBtn');
-    const resultCard = document.getElementById('resultCard');
-    const resultContent = document.getElementById('resultContent');
-    const copyBtn = document.getElementById('copyBtn');
+    const uploadWrapper     = $('uploadWrapper');
+    const fileInput         = $('fileInput');
+    const uploadPlaceholder = $('uploadPlaceholder');
+    const imagePreview      = $('imagePreview');
+    const imageControls     = $('imageControls');
+    const changeImageBtn    = $('changeImageBtn');
+    const removeImageBtn    = $('removeImageBtn');
+    const questionText      = $('questionText');
+    const clearBtn          = $('clearBtn');
+    const solveBtn          = $('solveBtn');
+    const resultCard        = $('resultCard');
+    const resultContent     = $('resultContent');
+    const copyBtn           = $('copyBtn');
+
+    if (!uploadWrapper || !fileInput || !uploadPlaceholder || !imagePreview || !imageControls ||
+        !changeImageBtn || !removeImageBtn || !questionText || !clearBtn || !solveBtn ||
+        !resultCard || !resultContent || !copyBtn) {
+      console.error('Some required elements are missing in DOM.');
+      return;
+    }
 
     let uploadedFile = null;
 
-    function fileToBase64(file){return new Promise((resolve,reject)=>{const reader=new FileReader;reader.readAsDataURL(file);reader.onload=()=>resolve(reader.result.split(",")[1]);reader.onerror=e=>reject(e)})}
-    function typeWriterEffect(e,t,n){let o=0;e.innerHTML="";const i='<span class="blinking-cursor">|</span>';function l(){o<t.length?(e.innerHTML=t.substring(0,o+1)+i,o++,setTimeout(l,15)):(e.innerHTML=t,n&&n())}e.innerHTML=i,l()}
-    function renderMathInElement(e){let t=e.innerHTML;t=t.replace(/\$\$([\s\S]*?)\$\$/g,(e,t)=>{try{return katex.renderToString(t,{displayMode:!0,throwOnError:!1})}catch(e){return e}}),t=t.replace(/\$([\s\S]*?)\$/g,(e,t)=>{try{return katex.renderToString(t,{displayMode:!1,throwOnError:!1})}catch(e){return e}}),e.innerHTML=t}
-    function updateUploadUI(e){e&&e.type.startsWith("image/")?(uploadedFile=e,reader=new FileReader,reader.onload=e=>{imagePreview.style.backgroundImage=`url('${e.target.result}')`},reader.readAsDataURL(e),uploadWrapper.classList.add("has-file"),imageControls.style.display="flex"):(e&&alert("กรุณาเลือกไฟล์รูปภาพเท่านั้น"),uploadedFile=null,imagePreview.style.backgroundImage="none",uploadWrapper.classList.remove("has-file"),imageControls.style.display="none",fileInput.value="")}
-    uploadPlaceholder.addEventListener("click",()=>fileInput.click()),changeImageBtn.addEventListener("click",()=>fileInput.click()),removeImageBtn.addEventListener("click",()=>updateUploadUI(null)),fileInput.addEventListener("change",()=>{fileInput.files.length>0&&updateUploadUI(fileInput.files[0])}),["dragenter","dragover"].forEach(e=>{uploadWrapper.addEventListener(e,t=>{t.preventDefault(),t.stopPropagation(),uploadWrapper.classList.add("dragover")})}),["dragleave","drop"].forEach(e=>{uploadWrapper.addEventListener(e,t=>{t.preventDefault(),t.stopPropagation(),uploadWrapper.classList.remove("dragover")})}),uploadWrapper.addEventListener("drop",e=>{const t=e.dataTransfer.files[0];updateUploadUI(t)}),document.addEventListener("paste",e=>{const t=e.clipboardData.files[0];t&&updateUploadUI(t)}),clearBtn.addEventListener("click",()=>{updateUploadUI(null),questionText.value="",resultCard.classList.remove("visible")}),copyBtn.addEventListener("click",()=>{navigator.clipboard.writeText(resultContent.innerText).then(()=>{copyBtn.textContent="คัดลอกแล้ว!",setTimeout(()=>{copyBtn.textContent="คัดลอก"},2e3)}).catch(e=>{alert("ไม่สามารถคัดลอกได้: "+e)})}),solveBtn.addEventListener("click",async()=>{const e=questionText.value.trim();if(!uploadedFile&&!e)return void alert("กรุณาอัปโหลดรูปหรือพิมพ์โจทย์ก่อน!");solveBtn.disabled=!0,solveBtn.textContent="กำลังประมวลผล...",resultCard.classList.add("visible"),resultContent.innerHTML='กำลังเรียกยานแม่... <span class="blinking-cursor">|</span>';const t=[];let n="จากโจทย์ที่ให้มานี้ ช่วยแสดงวิธีทำและหาคำตอบให้หน่อย";e&&(n+=": "+e),t.push({text:n});if(uploadedFile)try{const e=await fileToBase64(uploadedFile);t.push({inline_data:{mime_type:uploadedFile.type,data:e}})}catch(e){return console.error("Error converting file to base64:",e),resultContent.innerHTML='<p style="color:var(--danger)">เกิดข้อผิดพลาดในการแปลงไฟล์รูปภาพ</p>',solveBtn.disabled=!1,void(solveBtn.textContent="เฉลย")}try{const e=await fetch(API_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({contents:[{parts:t}]})});if(!e.ok){const t=await e.json();throw new Error(t.error.message||`HTTP error! status: ${e.status}`)}const n=await e.json(),o=n.candidates[0].content.parts[0].text,i=marked.parse(o);typeWriterEffect(resultContent,i,()=>{renderMathInElement(resultContent)})}catch(e){console.error("Error calling Gemini API:",e),resultContent.innerHTML=`<p style="color:var(--danger)"><strong>เกิดข้อผิดพลาด:</strong> ${e.message}</p>`}finally{solveBtn.disabled=!1,solveBtn.textContent="เฉลย"}});
+    function fileToBase64(file){
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result.split(',')[1]);
+        reader.onerror = (e) => reject(e);
+      });
+    }
+
+    function typeWriterEffect(el, html, onDone){
+      let i = 0;
+      const cursor = '<span class="blinking-cursor">|</span>';
+      el.innerHTML = cursor;
+      (function type(){
+        if (i < html.length){ el.innerHTML = html.substring(0, i + 1) + cursor; i++; setTimeout(type, 15); }
+        else { el.innerHTML = html; onDone && onDone(); }
+      })();
+    }
+
+    function renderMathInElement(el){
+      let t = el.innerHTML;
+      t = t.replace(/\$\$([\s\S]*?)\$\$/g, (m, exp) => {
+        try { return katex.renderToString(exp, { displayMode:true, throwOnError:false }); }
+        catch { return m; }
+      });
+      t = t.replace(/\$([\s\S]*?)\$/g, (m, exp) => {
+        try { return katex.renderToString(exp, { displayMode:false, throwOnError:false }); }
+        catch { return m; }
+      });
+      el.innerHTML = t;
+    }
+
+    function updateUploadUI(file){
+      if (file && file.type && file.type.startsWith('image/')){
+        uploadedFile = file;
+        const reader = new FileReader();
+        reader.onload = e => { imagePreview.style.backgroundImage = `url('${e.target.result}')`; };
+        reader.readAsDataURL(file);
+        uploadWrapper.classList.add('has-file');
+        imageControls.style.display = 'flex';
+      }else{
+        if (file) alert('กรุณาเลือกไฟล์รูปภาพเท่านั้น');
+        uploadedFile = null;
+        imagePreview.style.backgroundImage = 'none';
+        uploadWrapper.classList.remove('has-file');
+        imageControls.style.display = 'none';
+        fileInput.value = '';
+      }
+    }
+
+    uploadPlaceholder.addEventListener('click', () => fileInput.click());
+    changeImageBtn.addEventListener('click', () => fileInput.click());
+    removeImageBtn.addEventListener('click', () => updateUploadUI(null));
+
+    fileInput.addEventListener('change', () => {
+      if (fileInput.files && fileInput.files[0]) updateUploadUI(fileInput.files[0]);
+    });
+
+    ['dragenter','dragover'].forEach(name => {
+      uploadWrapper.addEventListener(name, e => {
+        e.preventDefault(); e.stopPropagation();
+        uploadWrapper.classList.add('dragover');
+      });
+    });
+    ['dragleave','drop'].forEach(name => {
+      uploadWrapper.addEventListener(name, e => {
+        e.preventDefault(); e.stopPropagation();
+        uploadWrapper.classList.remove('dragover');
+      });
+    });
+    uploadWrapper.addEventListener('drop', e => {
+      const file = e.dataTransfer.files && e.dataTransfer.files[0];
+      if (file) updateUploadUI(file);
+    });
+    document.addEventListener('paste', e => {
+      const file = e.clipboardData && e.clipboardData.files && e.clipboardData.files[0];
+      if (file) updateUploadUI(file);
+    });
+
+    clearBtn.addEventListener('click', () => {
+      updateUploadUI(null);
+      questionText.value = '';
+      resultCard.classList.remove('visible');
+    });
+
+    copyBtn.addEventListener('click', () => {
+      navigator.clipboard.writeText(resultContent.innerText)
+        .then(() => { copyBtn.textContent = 'คัดลอกแล้ว!'; setTimeout(() => copyBtn.textContent = 'คัดลอก', 2000); })
+        .catch(err => alert('ไม่สามารถคัดลอกได้: ' + err));
+    });
+
+    solveBtn.addEventListener('click', async () => {
+      const textPrompt = (questionText.value || '').trim();
+      if (!uploadedFile && !textPrompt){
+        alert('กรุณาอัปโหลดรูปหรือพิมพ์โจทย์ก่อน!');
+        return;
+      }
+
+      solveBtn.disabled = true;
+      solveBtn.textContent = 'กำลังประมวลผล...';
+      resultCard.classList.add('visible');
+      resultContent.innerHTML = 'กำลังเรียกยานแม่... <span class="blinking-cursor">|</span>';
+
+      const parts = [];
+      let promptText = 'จากโจทย์ที่ให้มานี้ ช่วยแสดงวิธีทำและหาคำตอบให้หน่อย';
+      if (textPrompt) promptText += ': ' + textPrompt;
+      parts.push({ text: promptText });
+
+      if (uploadedFile){
+        try{
+          const base64 = await fileToBase64(uploadedFile);
+          parts.push({ inline_data: { mime_type: uploadedFile.type, data: base64 } });
+        }catch(err){
+          console.error('base64 error', err);
+          resultContent.innerHTML = '<p style="color:var(--danger)">เกิดข้อผิดพลาดในการแปลงไฟล์รูปภาพ</p>';
+          solveBtn.disabled = false; solveBtn.textContent = 'เฉลย';
+          return;
+        }
+      }
+
+      try{
+        const res = await fetch(API_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ contents: [{ parts }] })
+        });
+        if (!res.ok){
+          let msg = `HTTP ${res.status}`;
+          try{ const j = await res.json(); if (j?.error?.message) msg = j.error.message; }catch{}
+          throw new Error(msg);
+        }
+        const data = await res.json();
+        const aiText = data?.candidates?.[0]?.content?.parts?.[0]?.text || '—';
+        const html   = marked.parse(aiText);
+        typeWriterEffect(resultContent, html, () => renderMathInElement(resultContent));
+      }catch(err){
+        console.error('API error', err);
+        resultContent.innerHTML = `<p style="color:var(--danger)"><strong>เกิดข้อผิดพลาด:</strong> ${err.message}</p>`;
+      }finally{
+        solveBtn.disabled = false;
+        solveBtn.textContent = 'เฉลย';
+      }
+    });
+  });
   </script>
 </body>
 </html>
